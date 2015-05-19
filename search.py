@@ -87,8 +87,6 @@ def searchHelper(grid,init,goal,cost,visited,o,expansion,ctr,backpointer):
         return 'fail'
 
 def pretty(backpointer,init,goal,grid):
-    for i in xrange(len(backpointer)):
-        print backpointer[i]
     path = [[' ' for i in xrange(len(backpointer[0]))] for j in xrange(len(backpointer))]
     path[goal[0]][goal[1]] = '*'
     IamAt = goal
@@ -100,17 +98,12 @@ def pretty(backpointer,init,goal,grid):
             if(newX<0 or newX>=len(backpointer) or newY<0 or newY>=len(backpointer[0])):
                 continue
             if(abs((backpointer[newX][newY][0]-IamAt[0]) + (backpointer[newX][newY][1]-IamAt[1])) == 1):
-                print IamAt
-                print newX,newY
                 if(grid[newX][newY]<grid[IamAt[0]][IamAt[1]]):
                     pos = [backpointer[newX][newY][0],backpointer[newX][newY][1]]
-                    print "SET POS"
                     break
         cameFrom = pos
         if(IamAt==cameFrom):
             break
-        for i in xrange(len(path)):
-            print path[i]
         dirVector = [IamAt[0]-cameFrom[0],IamAt[1]-cameFrom[1]]
         dirIndex = delta.index(dirVector)
         path[cameFrom[0]][cameFrom[1]] = delta_name[dirIndex];
