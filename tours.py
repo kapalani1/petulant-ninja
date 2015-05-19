@@ -1,4 +1,5 @@
-# Find Eulerian Tour
+# Find Eulerian Tour given a graph with edges
+# Recursive solution using backtracking
 
 def findNeighbors(popList,currentNode):
     neighbors = []
